@@ -33,6 +33,9 @@ class Club(models.Model):
     image = models.ImageField(default="clubs/default.png", upload_to=get_upload_path_club)
     classroom_code = models.CharField(blank=True, max_length=10)
     day_of_meeting = models.CharField(max_length=10, choices=WEEK_DAYS, blank=True)
+    time = models.TimeField(blank=True, null=True)
+    room_num = models.CharField(blank=True, max_length=10)
+    teacher_advisor = models.CharField(blank=True, max_length=20)
     # TODO: add other neeeded fields
 
     # [DONE] club name
