@@ -18,12 +18,4 @@ class ClubSerializer(TaggitSerializer, serializers.ModelSerializer):
             "room_num", "classroom_code", "teacher_advisor"
             ]
 
-    def validateCategory(self, value):
-        invalid = set(value) - CLUB_CATEGORY_CHOICES
-        if invalid:
-            raise serializers.ValidationError(
-                f"Invalid category: {invalid}."
-                f"Valid categories are: {CLUB_CATEGORY_CHOICES}."
-            )
-        
 # TODO: add serializer for club SM sites

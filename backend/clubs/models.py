@@ -2,14 +2,6 @@ from django.db import models
 from django.utils import timezone
 from taggit.managers import TaggableManager
 from PIL import Image
-import datetime
-
-CLUB_CATEGORY_CHOICES = [
-    ("ACADEMIC", "Academic"),
-    ("ARTS", "Arts"),
-    ("COMMUNITY", "Community"),
-    ("SPORTS & RECREATION", "Sports & Recreation")
-]
 
 WEEK_DAYS = [
     ("MONDAY", "Monday"),
@@ -29,29 +21,13 @@ class Club(models.Model):
     #group = models.OneToOneField(Group, on_delete=models.CASCADE, related_name='group')
     name = models.CharField(max_length=100)
     description = models.TextField(blank=True, max_length=500)
-    category = TaggableManager(blank=True) # for filtering by category, e.g. academic, arts, community, sports & recreation
+    category = TaggableManager(blank=True)
     image = models.ImageField(default="clubs/default.png", upload_to=get_upload_path_club)
     classroom_code = models.CharField(blank=True, max_length=10)
     day_of_meeting = models.CharField(max_length=10, choices=WEEK_DAYS, blank=True)
     time = models.TimeField(blank=True, null=True)
-    room_num = models.CharField(blank=True, max_length=10)
+    room_num = models.IntegerField(blank=True, null=True)
     teacher_advisor = models.CharField(blank=True, max_length=20)
-    # TODO: add other neeeded fields
-
-    # [DONE] club name
-    # [DONE] club motto
-    # [DONE: IN CALENDAR]club location
-    # [DONE] club schedule
-    # [DONE] club profile picture
-    # [DONE: IN TAGS] club main category
-    # [DONE] club tags
-    # [DONE] club social media URLs
-    # [DONE] club description
-    # [DONE] club gallery/images bank
-    # club execs list
-    # a. club exec profile picture
-    # b. club exec position
-    # [DONE] club google classroom code
 
     def __str__(self):
         return self.name
@@ -79,7 +55,7 @@ class ClubGalleryImage(models.Model):
     image = models.ImageField(upload_to=get_upload_path_club_gallery)
     name = models.CharField(max_length=100)
     description = models.TextField(blank=True, max_length=500)
-    category = models.CharField(max_length=20, choices=CLUB_CATEGORY_CHOICES, default="ACADEMIC")
+    category = TaggableManager(blank=True)
     
     def save(self):
         super().save()
