@@ -12,7 +12,8 @@ class Calendar(models.Model):
     product_id = settings.CALENDAR_PRODUCT_ID
     timezone = models.TextField(default="UTC") # TODO: deal w/ this later, possibly choices? maybe?
     filename = models.TextField(default=f"{name}.ics")
-    club = models.OneToOneField(Club, on_delete=models.CASCADE)
+    #club = models.OneToOneField(Club, on_delete=models.CASCADE)
+    # ^^^ Fix issue with field
 
     def save(self, *args, **kwargs):
         if self.filename and not self.filename.endswith(".ics"):
@@ -28,8 +29,9 @@ class CalendarEvent(models.Model):
     location = models.CharField(max_length=255, blank=True)
     created = models.DateTimeField(default=timezone.now)
     updated = models.DateTimeField(default=timezone.now)
-    calendar = models.ForeignKey(Calendar, on_delete=models.CASCADE)
-
+    #calendar = models.ForeignKey(Calendar, on_delete=models.CASCADE)
+    # ^^^ Fix issue with field
+    
     def __str__(self):
         return self.title
     

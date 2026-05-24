@@ -16,7 +16,7 @@ class EventAdminForm(forms.ModelForm):
     class Meta:
         model = Club
         fields = [
-            "name", "description", "category",
+            "name", "preview_description", "description", "category",
             "day_of_meeting", "time", "repetition", "room_num",
             "classroom_code", "teacher_advisor"
         ]
