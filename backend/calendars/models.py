@@ -2,7 +2,6 @@ from django.db import models
 #from django_ical.utils import build_rrule_from_recurrences_rrule
 from django.conf import settings
 from django.utils import timezone
-#from clubs.models import Club
 from django.urls import reverse
 from clubs.models import Club
 
@@ -31,7 +30,7 @@ class CalendarEvent(models.Model):
     updated = models.DateTimeField(default=timezone.now)
     #calendar = models.ForeignKey(Calendar, on_delete=models.CASCADE)
     # ^^^ Fix issue with field
-    
+
     def __str__(self):
         return self.title
     
