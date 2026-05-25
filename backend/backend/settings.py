@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "django_ical",
     "corsheaders",
     "rest_framework",
+    'rest_framework.authtoken',
     "calendars.apps.CalendarsConfig",
     "clubs.apps.ClubsConfig",
     'django.contrib.admin',
