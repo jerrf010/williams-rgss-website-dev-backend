@@ -24,6 +24,7 @@ class Club(models.Model):
 
     #group = models.OneToOneField(Group, on_delete=models.CASCADE, related_name='group')
     name = models.CharField(max_length=100)
+    preview_description = models.CharField(blank=True, max_length=200)
     description = models.TextField(blank=True, max_length=500)
     category = TaggableManager()
     repetition = models.CharField(blank=True, max_length=10, choices=Repetition.choices)
