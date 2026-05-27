@@ -10,3 +10,4 @@ gunicorn
 django-taggit-serializer
 django-solo
 django-address
+django-migration-fixer
