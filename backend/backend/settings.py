@@ -34,12 +34,14 @@ ALLOWED_HOSTS = config.ALLOWED_HOSTS
 # Application definition
 
 INSTALLED_APPS = [
+    "migration_fixer",
     "taggit",
     "taggit_serializer",
     "commands.apps.CommandsConfig",
     "django_ical",
     "corsheaders",
     "rest_framework",
+    'rest_framework.authtoken',
     "calendars.apps.CalendarsConfig",
     "clubs.apps.ClubsConfig",
     'django.contrib.admin',
