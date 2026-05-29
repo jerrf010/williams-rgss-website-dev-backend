@@ -9,5 +9,5 @@ psycopg2-binary
 gunicorn
 django-taggit-serializer
 django-solo
-django-address
+django-osm-field
 django-migration-fixer

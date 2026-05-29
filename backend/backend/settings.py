@@ -35,7 +35,7 @@ ALLOWED_HOSTS = config.ALLOWED_HOSTS
 
 INSTALLED_APPS = [
     "management",
-    "address",
+    "osm_field",
     "solo",
     "migration_fixer",
     "taggit",

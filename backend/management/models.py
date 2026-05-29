@@ -3,7 +3,7 @@ from solo.models import SingletonModel
 from clubs.models import SocialMedia
 from django.contrib.contenttypes.fields import GenericRelation
 from PIL import Image
-from address.models import AddressField
+from osm_field.fields import OSMField
 
 class SiteSettings(SingletonModel):
     maintainance_mode = models.BooleanField(default=False)
@@ -14,7 +14,7 @@ class SiteSettings(SingletonModel):
     about_stuco = models.TextField(blank=True, max_length=500)
     about_school = models.TextField(blank=True, max_length=500)
     # TODO: add website maintainers once users are done
-    school_location = AddressField(blank=True, null=True)
+    school_location = OSMField(blank=True, null=True)
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
