@@ -1,12 +1,6 @@
 name: Docker Package
 
 on:
-  pull_request:
-    paths:
-      - ".github/workflows/docker-package.yml"
-      - ".dockerignore"
-      - "backend/**"
-      - "requirements.txt"
   push:
     branches:
       - main
