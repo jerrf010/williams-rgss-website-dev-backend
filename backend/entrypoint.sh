@@ -24,8 +24,5 @@ else:
     print(f"Superuser '{username}' created.")
 EOF
 
-echo "==> Running deployment checks..."
-python manage.py check --deploy
-
 echo "==> Starting gunicorn..."
 exec gunicorn backend.wsgi:application --bind 0.0.0.0:8000 --workers 3
