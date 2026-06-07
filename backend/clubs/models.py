@@ -50,7 +50,8 @@ class Club(models.Model):
                                            help_text="Select 'Accepting' if applications are required. " \
                                            "Select 'Open To Everyone' for google classroom code")
     application_form_link = models.URLField(blank=True, 
-                                          help_text="This can be either a google classroom invite link" \
+                                            max_length=250,
+                                            help_text="This can be either a google classroom invite link" \
                                           " or a application form link")
     announcement = models.CharField(null=True,
                                     help_text="This is where you announce application news.") #BEN ISSUE
